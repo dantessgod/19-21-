@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo App</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: sans-serif; }
+    .completed { text-decoration: line-through; opacity: 0.6; }
+    .active { background-color: #3b82f6; color: white; }
+  </style>
+</head>
+<body class="bg-zinc-900 text-white flex justify-center p-10">
+
+<div class="w-full max-w-xl bg-zinc-800 rounded-2xl p-6 shadow-xl">
+
+  <h1 class="text-2xl font-bold mb-4">Todo App</h1>
+
+  <!-- Форма -->
+  <form id="task-form" class="flex gap-2 mb-4">
+    <input id="task-input" type="text" placeholder="Новая задача"
+      class="flex-1 p-2 rounded bg-zinc-700">
+    
+    <select id="priority-select" class="p-2 rounded bg-zinc-700">
+      <option value="low">Low</option>
+      <option value="medium" selected>Medium</option>
+      <option value="high">High</option>
+    </select>
+
+    <button class="bg-green-600 px-4 rounded">+</button>
+  </form>
+
+  <!-- Фильтры -->
+  <div id="filters" class="flex gap-2 mb-4">
+    <button data-filter="all" class="filter-btn active px-3 py-1 bg-zinc-700 rounded">All</button>
+    <button data-filter="active" class="filter-btn px-3 py-1 bg-zinc-700 rounded">Active</button>
+    <button data-filter="completed" class="filter-btn px-3 py-1 bg-zinc-700 rounded">Completed</button>
+  </div>
+
+  <!-- Список -->
+  <ul id="task-list" class="space-y-2"></ul>
+
+  <!-- Панель -->
+  <div class="flex justify-between mt-4 text-sm">
+    <span id="stats"></span>
+    <div class="flex gap-2">
+      <button id="load-server" class="bg-blue-600 px-3 py-1 rounded">Загрузить</button>
+      <button id="clear-completed" class="bg-red-600 px-3 py-1 rounded">Очистить</button>
+    </div>
+  </div>
+
+</div>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
